@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Invitation</title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            background: #dce8ed;
+        }
+
+
+        /* ================================
+           MAIN STAGE
+        ================================ */
+
+        .stage {
+
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* ================================
+           INVITATION FRAME — 9:16
+        ================================ */
+
+        .invitation {
+
+            position: relative;
+
+            width: min(100vw, 56.25vh);
+
+            height: min(100vh, 177.777vw);
+
+            aspect-ratio: 9 / 16;
+
+            overflow: hidden;
+
+            background: #dce8ed;
+        }
+
+
+        /* ================================
+           CLOSED ENVELOPE
+        ================================ */
+
+        .envelope-image {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+
+            z-index: 2;
+        }
+
+
+        /* ================================
+           ENVELOPE VIDEO
+        ================================ */
+
+        .envelope-video {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            display: none;
+
+            background: #dce8ed;
+
+            z-index: 3;
+        }
+
+
+        /* ================================
+           CLICK AREA
+        ================================ */
+
+        .click-area {
+
+            position: absolute;
+
+            inset: 0;
+
+            cursor: pointer;
+
+            z-index: 50;
+        }
+
+
+        /* ================================
+           BUTTERFLY INTRO
+        ================================ */
+
+        .butterfly-intro {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: transparent;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            z-index: 10;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.35s ease;
+        }
+
+
+        .butterfly-intro.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+        }
+
+
+        /* ================================
+           BUTTERFLY
+        ================================ */
+
+        .butterfly {
+
+            position: relative;
+
+            width: 180px;
+
+            max-width: 42vw;
+
+            height: auto;
+
+            display: block;
+
+            opacity: 0;
+
+            cursor: pointer;
+
+            transform:
+                translate(0, 0)
+                scale(0.78);
+
+            filter:
+                drop-shadow(
+                    0 10px 22px
+                    rgba(70, 60, 40, 0.16)
+                );
+
+            animation:
+                butterflyEnter 0.6s
+                cubic-bezier(0.22, 0.8, 0.3, 1)
+                forwards;
+        }
+
+
+        /* ================================
+           BUTTERFLY ENTRANCE
+        ================================ */
+
+        @keyframes butterflyEnter {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(0, 8px)
+                    scale(0.72);
+            }
+
+
+            65% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, -3px)
+                    scale(1.12);
+            }
+
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+        }
+
+
+        /* ================================
+           BUTTERFLY MOVEMENT
+        ================================ */
+
+        .butterfly.float {
+
+            animation:
+                butterflyMove 5s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes butterflyMove {
+
+            0% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, 0)
+                    rotate(-2deg)
+                    scale(1);
+            }
+
+
+            15% {
+
+                opacity: 1;
+
+                transform:
+                    translate(-45px, -35px)
+                    rotate(4deg)
+                    scale(1.08);
+            }
+
+
+            30% {
+
+                opacity: 1;
+
+                transform:
+                    translate(55px, -55px)
+                    rotate(-4deg)
+                    scale(1.12);
+            }
+
+
+            45% {
+
+                opacity: 1;
+
+                transform:
+                    translate(65px, 25px)
+                    rotate(3deg)
+                    scale(1.05);
+            }
+
+
+            60% {
+
+                opacity: 1;
+
+                transform:
+                    translate(20px, 65px)
+                    rotate(-3deg)
+                    scale(1.1);
+            }
+
+
+            75% {
+
+                opacity: 1;
+
+                transform:
+                    translate(-55px, 45px)
+                    rotate(4deg)
+                    scale(1.06);
+            }
+
+
+            90% {
+
+                opacity: 1;
+
+                transform:
+                    translate(-65px, -15px)
+                    rotate(-3deg)
+                    scale(1.1);
+            }
+
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, 0)
+                    rotate(-2deg)
+                    scale(1);
+            }
+        }
+
+
+        /* ================================
+           BUTTERFLY CLICK / ZOOM
+        ================================ */
+
+        .butterfly.clicked {
+
+            animation:
+                butterflyZoom 0.8s
+                cubic-bezier(0.2, 0.8, 0.2, 1)
+                forwards;
+        }
+
+
+        @keyframes butterflyZoom {
+
+            0% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.1)
+                    rotate(0deg);
+            }
+
+
+            45% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.8)
+                    rotate(2deg);
+            }
+
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    scale(4)
+                    rotate(0deg);
+            }
+        }
+
+
+        /* ================================
+           INTRO TEXT
+        ================================ */
+
+        .intro-text {
+
+            margin-top: 25px;
+
+            padding: 0 20px;
+
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(22px, 5vw, 34px);
+
+            font-weight: 600;
+
+            letter-spacing: 0.6px;
+
+            line-height: 1.2;
+
+            color: #C9A45C;
+
+            text-align: center;
+
+            opacity: 0;
+
+            transform:
+                translateY(8px);
+
+            animation:
+                textAppear 0.6s ease-out
+                0.15s
+                forwards;
+        }
+
+
+        @keyframes textAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* ================================
+           DECORATIONS
+        ================================ */
+
+        .decorations {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+        }
+
+
+        .spark {
+
+            position: absolute;
+
+            opacity: 0;
+
+            animation:
+                sparkAppear 0.8s ease-out
+                forwards;
+        }
+
+
+        .star {
+
+            font-size: 15px;
+
+            color: #C9A45C;
+        }
+
+
+        .heart {
+
+            font-size: 13px;
+
+            color: #C9A45C;
+        }
+
+
+        .dot {
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #D4B66F;
+        }
+
+
+        .leaf {
+
+            font-size: 15px;
+
+            color: #9EAF91;
+        }
+
+
+        /* ================================
+           DECORATION POSITIONS
+        ================================ */
+
+        .spark-1 {
+
+            left: 28%;
+            top: 39%;
+
+            animation-delay: 0.15s;
+        }
+
+
+        .spark-2 {
+
+            left: 68%;
+            top: 42%;
+
+            animation-delay: 0.3s;
+        }
+
+
+        .spark-3 {
+
+            left: 35%;
+            top: 50%;
+
+            animation-delay: 0.45s;
+        }
+
+
+        .spark-4 {
+
+            left: 64%;
+            top: 52%;
+
+            animation-delay: 0.6s;
+        }
+
+
+        .spark-5 {
+
+            left: 24%;
+            top: 46%;
+
+            animation-delay: 0.75s;
+        }
+
+
+        .spark-6 {
+
+            left: 74%;
+            top: 47%;
+
+            animation-delay: 0.9s;
+        }
+
+
+        /* ================================
+           DECORATION ANIMATION
+        ================================ */
+
+        @keyframes sparkAppear {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px)
+                    scale(0.5);
+            }
+
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(-5px)
+                    scale(1);
+            }
+
+
+            100% {
+
+                opacity: 0.8;
+
+                transform:
+                    translateY(-9px)
+                    scale(0.9);
+            }
+        }
+
+
+        /* ================================
+           INVITATION SCROLL
+        ================================ */
+
+        .invitation-scroll {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            display: none;
+
+            z-index: 20;
+
+            background: #dce8ed;
+
+            scroll-behavior: smooth;
+
+            -webkit-overflow-scrolling: touch;
+
+            scrollbar-width: none;
+        }
+
+
+        .invitation-scroll::-webkit-scrollbar {
+
+            display: none;
+        }
+
+
+        /* ================================
+           LONG INVITATION
+        ================================ */
+
+        .invitation-content {
+
+            width: 100%;
+
+            display: block;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* ================================
+           SCENES
+        ================================ */
+
+        .scene {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .scene img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            margin: 0;
+            padding: 0;
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="stage">
+
+
+        <div class="invitation">
+
+
+            <!-- ================================
+                 BACKGROUND MUSIC
+            ================================= -->
+
+            <audio
+                id="backgroundMusic"
+                src="music.mp3"
+                preload="auto"
+                loop
+            ></audio>
+
+
+            <!-- ================================
+                 CLOSED ENVELOPE
+            ================================= -->
+
+            <img
+                src="envelope.jpg"
+                class="envelope-image"
+                id="envelopeImage"
+                alt="Invitation envelope"
+            >
+
+
+            <!-- ================================
+                 ENVELOPE VIDEO
+            ================================= -->
+
+            <video
+                src="envelope.mp4"
+                class="envelope-video"
+                id="envelopeVideo"
+                playsinline
+                preload="auto"
+            ></video>
+
+
+            <!-- ================================
+                 BUTTERFLY
+            ================================= -->
+
+            <div
+                class="butterfly-intro"
+                id="butterflyIntro"
+            >
+
+
+                <div class="decorations">
+
+
+                    <span class="spark star spark-1">
+                        ✦
+                    </span>
+
+
+                    <span class="spark heart spark-2">
+                        ♡
+                    </span>
+
+
+                    <span class="spark dot spark-3">
+                    </span>
+
+
+                    <span class="spark leaf spark-4">
+                        ❧
+                    </span>
+
+
+                    <span class="spark star spark-5">
+                        ✧
+                    </span>
+
+
+                    <span class="spark heart spark-6">
+                        ♡
+                    </span>
+
+
+                </div>
+
+
+                <img
+                    src="butterfly.png"
+                    class="butterfly"
+                    id="butterfly"
+                    alt="Butterfly"
+                >
+
+
+                <div
+                    class="intro-text"
+                    id="introText"
+                >
+                    Something beautiful is about to begin
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================
+                 INVITATION SCROLL
+            ================================= -->
+
+            <div
+                class="invitation-scroll"
+                id="invitationScroll"
+            >
+
+
+                <div class="invitation-content">
+
+
+                    <!-- SCENE 1 -->
+
+                    <div class="scene">
+
+                        <img
+                            src="invitation.png"
+                            alt="Invitation scene 1"
+                        >
+
+                    </div>
+
+
+                    <!-- SCENE 2 -->
+
+                    <div class="scene">
+
+                        <img
+                            src="invitation2.png"
+                            alt="Invitation scene 2"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 CLICK AREA
+            ================================= -->
+
+            <div
+                class="click-area"
+                id="clickArea"
+            ></div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* ================================
+           ELEMENTS
+        ================================= */
+
+        const clickArea =
+            document.getElementById("clickArea");
+
+
+        const envelopeImage =
+            document.getElementById("envelopeImage");
+
+
+        const envelopeVideo =
+            document.getElementById("envelopeVideo");
+
+
+        const butterflyIntro =
+            document.getElementById("butterflyIntro");
+
+
+        const butterfly =
+            document.getElementById("butterfly");
+
+
+        const invitationScroll =
+            document.getElementById("invitationScroll");
+
+
+        const backgroundMusic =
+            document.getElementById("backgroundMusic");
+
+
+
+        /* ================================
+           OPEN ENVELOPE
+        ================================= */
+
+        clickArea.addEventListener(
+            "click",
+            function () {
+
+
+                /*
+                Remove click area
+                */
+
+                clickArea.style.display =
+                    "none";
+
+
+                /*
+                Hide closed envelope
+                */
+
+                envelopeImage.style.display =
+                    "none";
+
+
+                /*
+                Show envelope video
+                */
+
+                envelopeVideo.style.display =
+                    "block";
+
+
+                envelopeVideo.currentTime =
+                    0;
+
+
+                /*
+                Envelope video speed
+                */
+
+                envelopeVideo.playbackRate =
+                    2;
+
+
+                /*
+                Start music
+                */
+
+                backgroundMusic.currentTime =
+                    0;
+
+
+                backgroundMusic.volume =
+                    1;
+
+
+                backgroundMusic.play()
+                    .catch(
+                        function (error) {
+
+                            console.log(
+                                "Music could not start:",
+                                error
+                            );
+
+                        }
+                    );
+
+
+                /*
+                Start envelope video
+                */
+
+                envelopeVideo.play();
+
+            }
+        );
+
+
+
+        /* ================================
+           VIDEO ENDS
+        ================================= */
+
+        envelopeVideo.addEventListener(
+            "ended",
+            function () {
+
+
+                /*
+                Show butterfly
+                */
+
+                butterflyIntro.classList.add(
+                    "show"
+                );
+
+
+                /*
+                Start butterfly movement
+                */
+
+                setTimeout(
+                    function () {
+
+                        butterfly.classList.add(
+                            "float"
+                        );
+
+                    },
+                    600
+                );
+
+            }
+        );
+
+
+
+        /* ================================
+           CLICK BUTTERFLY
+        ================================= */
+
+        butterfly.addEventListener(
+            "click",
+            function (event) {
+
+
+                event.stopPropagation();
+
+
+                /*
+                Stop butterfly movement
+                */
+
+                butterfly.classList.remove(
+                    "float"
+                );
+
+
+                /*
+                Butterfly zoom
+                */
+
+                butterfly.classList.add(
+                    "clicked"
+                );
+
+
+                /*
+                Show invitation
+                */
+
+                setTimeout(
+                    function () {
+
+
+                        butterflyIntro.style.opacity =
+                            "0";
+
+
+                        butterflyIntro.style.visibility =
+                            "hidden";
+
+
+                        butterflyIntro.style.pointerEvents =
+                            "none";
+
+
+                        invitationScroll.style.display =
+                            "block";
+
+
+                        invitationScroll.scrollTop =
+                            0;
+
+
+                    },
+                    650
+                );
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
